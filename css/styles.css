@@ -1,0 +1,58 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
+
+:root {
+    /**************************
+    Colors
+    **************************/
+
+    --popup-background-color: hsl(217, 19%, 35%);
+    --active-pop-background-color: hsl(214, 17%, 51%);
+    --share-button-background-color: hsl(212, 23%, 69%);
+    --background-color: hsl(210, 46%, 95%);
+    --card-background-color: hsl(0, 0%, 100%);
+
+    /**************************
+    Typography
+    **************************/
+
+    --font-family: "Manrope", sans-serif;
+
+    /*13px*/
+    --font-size: 0.8125;
+    --weight-500: 500;
+    --weight-700: 700;
+}
+
+/**************************
+Global Reset
+**************************/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: var(--font-family);
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+html {
+    color-scheme: light only;
+}
+
+html,
+body,
+main {
+    min-height: 100vh;
+    min-height: 100dvh;
+}
