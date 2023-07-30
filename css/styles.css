@@ -53,6 +53,7 @@ a {
 }
 
 button {
+    outline: none;
     border: none;
     background: none;
     cursor: pointer;
@@ -84,7 +85,7 @@ main {
 }
 
 .card {
-    max-width: 800px;
+    max-width: 900px;
     width: 90vw;
     display: flex;
     flex-direction: column;
@@ -206,7 +207,7 @@ Share section
     background-color: var(--active-pop-background-color);
 }
 
-.share-section > button svg {
+.share-section > button img {
     fill: var(--card-background-color);
 }
 
@@ -259,7 +260,7 @@ Responsiveness
         width: 25px;
         height: 25px;
         border: 25px solid;
-        right: 2.5%;
+        right: 2%;
         bottom: 20%;
         border-color: var(--popup-background-color) transparent transparent
             transparent;
@@ -267,10 +268,12 @@ Responsiveness
 
     .image-section {
         flex: 1;
+        align-self: stretch;
     }
 
     .image-section img {
         border-radius: var(--border-radius) 0 0 var(--border-radius);
+        height: 100%;
     }
 
     article {
@@ -278,11 +281,21 @@ Responsiveness
     }
 
     article h1 {
-        font-size: 22px;
+        font-size: x-large;
     }
 
     article > p {
-        font-size: 13px;
+        font-size: medium;
+    }
+
+    .creator-section > button:hover,
+    .creator-section > button:focus {
+        background-color: var(--popup-background-color);
+    }
+
+    .creator-section > button:hover svg,
+    .creator-section > button:focus svg {
+        fill: var(--card-background-color);
     }
 
     .creator-section {
@@ -290,7 +303,7 @@ Responsiveness
     }
 
     .share-section.active {
-        right: -12%;
+        right: -14%;
         bottom: 33%;
         gap: 1rem;
         width: 35%;
