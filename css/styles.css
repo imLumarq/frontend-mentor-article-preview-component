@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Manrope:wght@500;700&display=swap");
 
 :root {
+    --border-radius-circle: 50%;
+    --border-radius: 1rem;
+
     /**************************
     Colors
     **************************/
@@ -18,13 +21,13 @@
     --font-family: "Manrope", sans-serif;
 
     /*13px*/
-    --font-size: 0.8125;
+    --font-size: 0.8125rem;
     --weight-500: 500;
     --weight-700: 700;
 }
 
 /**************************
-Global Reset
+Global reset
 **************************/
 
 *,
@@ -36,6 +39,15 @@ Global Reset
     font-family: var(--font-family);
 }
 
+h1,
+h2 {
+    color: var(--popup-background-color);
+}
+
+img {
+    width: 100%;
+}
+
 a {
     text-decoration: none;
 }
@@ -44,10 +56,17 @@ button {
     border: none;
     background: none;
     cursor: pointer;
+    width: 2.5rem;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius-circle);
 }
 
 html {
     color-scheme: light only;
+    font-size: var(--font-size);
 }
 
 html,
@@ -55,4 +74,173 @@ body,
 main {
     min-height: 100vh;
     min-height: 100dvh;
+    background-color: var(--background-color);
+}
+
+main {
+    display: grid;
+    place-items: center;
+    padding-block: 10%;
+}
+
+.card {
+    max-width: 1000px;
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--border-radius);
+    overflow: hidden;
+    background-color: var(--card-background-color);
+    font-weight: var(--weight-500);
+    line-height: 1.5;
+    z-index: 1;
+}
+
+/**************************
+Image section
+**************************/
+
+/**************************
+Text section
+**************************/
+article {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 2rem;
+}
+
+article h1 {
+    font-size: large;
+    font-weight: var(--weight-700);
+}
+
+article > p {
+    font-size: 14.5px;
+    color: var(--pop-background-color);
+    opacity: 0.6;
+}
+
+/**************************
+Creator section
+**************************/
+.creator-section.active {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.creator-section {
+    display: none;
+}
+
+.creator-section img {
+    border-radius: var(--border-radius-circle);
+    width: 4rem;
+    aspect-ratio: 1 / 1;
+}
+
+.creator-details {
+    flex: 1;
+}
+
+.creator-details h2 {
+    font-size: medium;
+}
+
+.creator-details p {
+    color: var(--popup-background-color);
+}
+
+.creator-section > button {
+    background-color: var(--background-color);
+}
+
+.creator-section > button svg {
+    fill: var(--share-button-background-color);
+}
+
+/**************************
+Share section
+**************************/
+.share-section {
+    display: none;
+    gap: 1rem;
+    padding-top: 2rem;
+    background-color: var(--popup-background-color);
+    width: 100%;
+    position: relative;
+}
+
+.share-section.active {
+    display: flex;
+}
+
+.share-section.active::before {
+    content: "";
+    position: absolute;
+    width: 150%;
+    height: 150%;
+    top: -1px;
+    z-index: -2;
+    left: -50px;
+    background-color: var(--popup-background-color);
+}
+
+.share-section h3 {
+    text-transform: uppercase;
+    font-weight: var(--weight-500);
+    color: var(--share-button-background-color);
+    letter-spacing: 5px;
+    align-self: center;
+}
+
+.links {
+    display: flex;
+    gap: 1rem;
+    flex: 1;
+}
+
+.links a {
+    display: flex;
+    align-items: center;
+}
+
+.links a svg {
+    fill: var(--card-background-color);
+}
+
+.share-section > button {
+    background-color: var(--active-pop-background-color);
+}
+
+.share-section > button svg {
+    fill: var(--card-background-color);
+}
+
+/**************************
+Responsiveness
+**************************/
+/*337px and less*/
+@media screen and (max-width: 21.0625em) {
+    .creator-section.active {
+        flex-direction: column;
+    }
+
+    .creator-details h2,
+    .creator-details p {
+        text-align: center;
+    }
+
+    .share-section.active,
+    .links {
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .share-section.active::before {
+        width: 200%;
+    }
 }
