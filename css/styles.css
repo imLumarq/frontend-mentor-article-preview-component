@@ -8,11 +8,11 @@
     Colors
     **************************/
 
-    --popup-background-color: hsl(217, 19%, 35%);
     --active-pop-background-color: hsl(214, 17%, 51%);
-    --share-button-background-color: hsl(212, 23%, 69%);
     --background-color: hsl(210, 46%, 95%);
     --card-background-color: hsl(0, 0%, 100%);
+    --popup-background-color: hsl(217, 19%, 35%);
+    --share-button-background-color: hsl(212, 23%, 69%);
 
     /**************************
     Typography
@@ -33,10 +33,10 @@ Global reset
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
     box-sizing: border-box;
     font-family: var(--font-family);
+    margin: 0;
+    padding: 0;
 }
 
 h1,
@@ -53,16 +53,16 @@ a {
 }
 
 button {
-    outline: none;
-    border: none;
-    background: none;
-    cursor: pointer;
-    width: 2.5rem;
+    align-items: center;
     aspect-ratio: 1 / 1;
+    background: none;
+    border-radius: var(--border-radius-circle);
+    border: none;
+    cursor: pointer;
     display: flex;
     justify-content: center;
-    align-items: center;
-    border-radius: var(--border-radius-circle);
+    outline: none;
+    width: 2.5rem;
 }
 
 html {
@@ -73,29 +73,29 @@ html {
 html,
 body,
 main {
-    min-height: 100vh;
-    min-height: 100dvh;
     background-color: var(--background-color);
+    min-height: 100dvh;
+    min-height: 100vh;
 }
 
 main {
     display: grid;
-    place-items: center;
     padding-block: 2rem;
+    place-items: center;
 }
 
 .card {
-    max-width: 900px;
-    width: 90vw;
+    align-items: center;
+    background-color: var(--card-background-color);
+    border-radius: var(--border-radius);
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    background-color: var(--card-background-color);
     font-weight: var(--weight-500);
+    justify-content: center;
     line-height: 1.5;
+    max-width: 600px;
+    overflow: hidden;
+    width: 90vw;
     z-index: 1;
 }
 
@@ -118,9 +118,9 @@ article h1 {
     font-weight: var(--weight-700);
 }
 
-article > p {
-    font-size: 14.5px;
+article>p {
     color: var(--pop-background-color);
+    font-size: 14.5px;
     opacity: 0.6;
 }
 
@@ -132,15 +132,15 @@ Creator section
 }
 
 .creator-section {
+    align-items: center;
     display: none;
     gap: 1rem;
-    align-items: center;
 }
 
 .creator-section img {
+    aspect-ratio: 1 / 1;
     border-radius: var(--border-radius-circle);
     width: 4rem;
-    aspect-ratio: 1 / 1;
 }
 
 .creator-details {
@@ -149,31 +149,46 @@ Creator section
 
 .creator-details h2 {
     font-size: medium;
+    text-align: start;
 }
 
 .creator-details p {
     color: var(--popup-background-color);
+    text-align: start;
 }
 
-.creator-section > button {
+.creator-section>button {
     background-color: var(--background-color);
+    transition: background-color 1s ease, fill 1s ease;
 }
 
-.creator-section > button svg {
+.creator-section>button svg {
     fill: var(--share-button-background-color);
+}
+
+.creator-section>button:hover,
+.creator-section>button:focus,
+.creator-section>button.active {
+    background-color: var(--popup-background-color);
+}
+
+.creator-section>button:hover svg,
+.creator-section>button:focus svg,
+.creator-section>button.active svg {
+    fill: var(--card-background-color);
 }
 
 /**************************
 Share section
 **************************/
 .share-section {
+    align-items: center;
+    background-color: var(--popup-background-color);
     display: none;
     gap: 1rem;
     padding-top: 2rem;
-    background-color: var(--popup-background-color);
-    width: 100%;
     position: relative;
-    align-items: center;
+    width: 100%;
 }
 
 .share-section.active {
@@ -181,33 +196,34 @@ Share section
 }
 
 .share-section h3 {
-    text-transform: uppercase;
-    font-weight: var(--weight-500);
-    color: var(--share-button-background-color);
-    letter-spacing: 5px;
     align-self: center;
+    color: var(--share-button-background-color);
+    font-weight: var(--weight-500);
+    letter-spacing: 5px;
+    text-transform: uppercase;
 }
 
 .links {
     display: flex;
-    gap: 1rem;
     flex: 1;
+    gap: 1rem;
 }
 
 .links a {
-    display: flex;
     align-items: center;
+    display: flex;
 }
 
 .links a svg {
     fill: var(--card-background-color);
 }
 
-.share-section > button {
+.share-section>button {
     background-color: var(--active-pop-background-color);
+    transition: background-color 1s ease, fill 1s ease;
 }
 
-.share-section > button img {
+.share-section>button svg {
     fill: var(--card-background-color);
 }
 
@@ -216,6 +232,7 @@ Responsiveness
 **************************/
 /*337px and less*/
 @media screen and (max-width: 21.0625em) {
+
     .creator-section.active,
     .share-section.active,
     .links {
@@ -232,43 +249,56 @@ Responsiveness
     }
 }
 
-/*799px and less*/
-@media screen and (max-width: 49.9375em) {
+/*999px and less*/
+@media screen and (max-width: 62.4375em) {
     .share-section.active::before {
-        content: "";
-        position: absolute;
-        width: 200%;
-        height: 150%;
-        top: -1px;
-        z-index: -2;
-        left: -50px;
         background-color: var(--popup-background-color);
+        content: "";
+        height: 150%;
+        left: -50%;
+        position: absolute;
+        top: -1px;
+        width: 200%;
+        z-index: -2;
     }
 }
 
-/*800px and more*/
-@media screen and (min-width: 50em) {
+/*500px and more*/
+@media screen and (min-width: 31.25em) {
+
+    .creator-details h2,
+    .creator-details p {
+        text-align: center;
+    }
+
+    .links {
+        justify-content: center;
+    }
+}
+
+/*1000px and more*/
+@media screen and (min-width: 62.5em) {
     .card {
         flex-direction: row;
-        position: relative;
+        max-width: 900px;
         overflow: visible;
+        position: relative;
     }
 
     .card.active::before {
-        position: absolute;
-        content: "";
-        width: 25px;
-        height: 25px;
+        border-color: var(--popup-background-color) transparent transparent transparent;
         border: 25px solid;
-        right: 2%;
         bottom: 20%;
-        border-color: var(--popup-background-color) transparent transparent
-            transparent;
+        content: "";
+        height: 25px;
+        position: absolute;
+        right: 2%;
+        width: 25px;
     }
 
     .image-section {
-        flex: 1;
         align-self: stretch;
+        flex: 1;
     }
 
     .image-section img {
@@ -284,41 +314,40 @@ Responsiveness
         font-size: x-large;
     }
 
-    article > p {
+    article>p {
         font-size: medium;
-    }
-
-    .creator-section > button:hover,
-    .creator-section > button:focus {
-        background-color: var(--popup-background-color);
-    }
-
-    .creator-section > button:hover svg,
-    .creator-section > button:focus svg {
-        fill: var(--card-background-color);
     }
 
     .creator-section {
         display: flex;
     }
 
+    .creator-details h2,
+    .creator-details p {
+        text-align: start;
+    }
+
+    .links {
+        justify-content: flex-start;
+    }
+
     .share-section.active {
-        right: -14%;
+        border-radius: var(--border-radius);
         bottom: 33%;
         gap: 1rem;
-        width: 35%;
         height: 20%;
+        justify-content: center;
         padding-top: 0rem;
         position: absolute;
-        border-radius: var(--border-radius);
-        justify-content: center;
+        right: -14%;
+        width: 35%;
     }
 
     .links {
         flex: 0;
     }
 
-    .share-section > button {
+    .share-section>button {
         display: none;
     }
 }
