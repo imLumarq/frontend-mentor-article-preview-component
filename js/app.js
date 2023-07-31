@@ -1,14 +1,15 @@
 const card = document.querySelector(".card");
 const creatorSection = document.querySelector(".creator-section");
 const shareSection = document.querySelector(".share-section");
-const shareButton = document.querySelector(".share-button");
-const closeButton = document.getElementById("close-button");
 
-shareButton.addEventListener("click", TogglePopup);
+const shareButtonOne = document.getElementById("btn-one");
+const shareButtonTwo = document.getElementById("btn-two");
 
-closeButton.addEventListener("click", TogglePopup);
+shareButtonOne.addEventListener("click", TogglePopup);
+shareButtonTwo.addEventListener("click", TogglePopup);
 
 function TogglePopup() {
+    shareButtonOne.classList.toggle("active");
     card.classList.toggle("active");
     creatorSection.classList.toggle("active");
     shareSection.classList.toggle("active");
