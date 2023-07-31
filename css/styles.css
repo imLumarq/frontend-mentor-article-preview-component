@@ -286,8 +286,8 @@ Responsiveness
     }
 
     .card.active::before {
-        border-color: var(--popup-background-color) transparent transparent transparent;
-        border: 25px solid;
+        border: 25px solid transparent;
+        border-top-color: var(--popup-background-color);
         bottom: 20%;
         content: "";
         height: 25px;
