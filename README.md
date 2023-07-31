@@ -31,6 +31,7 @@ This is a solution to the [Article preview component challenge on Frontend Mento
 
 ### Links
 
+-   Solution URL: (https://www.frontendmentor.io/solutions/article-preview-component-iSJEcLmEvl)
 -   Live Site URL: (https://imlumarq.github.io/frontend-mentor-article-preview-component)
 -   Github Repository: (https://github.com/imLumarq/frontend-mentor-article-preview-component)
 
